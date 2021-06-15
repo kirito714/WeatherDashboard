@@ -1,17 +1,26 @@
-const searchButton = $()
+const searchButton = $("#button-addon2");
+const todaysWeather = $("todayWeather");
+// when i hit search
+// then im request a url
+//then display my url to the page
+// temp, wind, humid, uv.
+let myProp = "icon";
+/// display the current city that was searched
+function displayWeather(weathData) {
+  console.log(weathData);
+  console.log(weathData.weather[0][myProp]);
+}
 
-
-
-var getWeather = function (city) {
-  var apiUrl = `https://api.openweathermap$.org/data/2.5/weather?q=+${city}&units=imperial&APPID=904755abfca69992b8a848481a87baea`;
-
+const getWeather = function (city) {
+  var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e6989dabdc4acd8059acb7786b6dfb7c`;
   return fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          return displayWeather(data);
+          displayWeather(data);
         });
       } else {
+        data;
         alert("Error: " + response.statusText);
       }
     })
@@ -20,5 +29,10 @@ var getWeather = function (city) {
     });
 };
 
+searchButton.on("click", function () {
+  //user input
+  const SearchInput = $("#textInput").val();
 
-
+  getWeather(SearchInput);
+  $;
+});
