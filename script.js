@@ -20,40 +20,19 @@ function displayWeather(weathData) {
   $("#humidDisplay").text(weathData.main.humidity);
 }
 function displayForecast(weathData) {
-  let iconUrl1 = weathData.list[0].weather[0].icon;
-  let iconEl1 = $("<img>").attr("alt", "weatherIcon").attr("src", iconUrl1);
-  let iconUrl2 = weathData.list[1].weather[0].icon;
-  let iconEl2 = $("<img>").attr("alt", "weatherIcon1").attr("src", iconUrl2);
-  let iconUrl3 = weathData.list[2].weather[0].icon;
-  let iconEl3 = $("<img>").attr("alt", "weatherIcon1").attr("src", iconUrl3);
-  let iconUrl4 = weathData.list[3].weather[0].icon;
-  let iconEl4 = $("<img>").attr("alt", "weatherIcon1").attr("src", iconUrl4);
-  let iconUrl5 = weathData.list[4].weather[0].icon;
-  let iconEl5 = $("<img>").attr("alt", "weatherIcon1").attr("src", iconUrl5);
- 
   $("#cityName").text(weathData.name);
   console.log(weathData.list);
 
-  $("#weatherIcon1").append(iconEl1);
-  $("#weatherIcon2").append(iconEl2);
-  $("#weatherIcon3").append(iconEl3);
-  $("#weatherIcon4").append(iconEl4);
-  $("#weatherIcon5").append(iconEl5);
-  $("#tempDisplay1").text(weathData.list[0].main.feels_like);
-  $("#windDisplay1").text(weathData.list[0].wind.speed);
-  $("#humidDisplay1").text(weathData.list[0].main.humidity);
-  $("#tempDisplay2").text(weathData.list[1].main.feels_like);
-  $("#windDisplay2").text(weathData.list[1].wind.speed);
-  $("#humidDisplay2").text(weathData.list[1].main.humidity);
-  $("#tempDisplay3").text(weathData.list[2].main.feels_like);
-  $("#windDisplay3").text(weathData.list[2].wind.speed);
-  $("#humidDisplay3").text(weathData.list[2].main.humidity);
-  $("#tempDisplay4").text(weathData.list[3].main.feels_like);
-  $("#windDisplay4").text(weathData.list[3].wind.speed);
-  $("#humidDisplay4").text(weathData.list[3].main.humidity);
-  $("#tempDisplay5").text(weathData.list[4].main.feels_like);
-  $("#windDisplay5").text(weathData.list[4].wind.speed);
-  $("#humidDisplay5").text(weathData.list[4].main.humidity);
+  for (let i = 0; i < 5; i++) {
+    let iconID = weathData.list[i].weather[0].icon;
+    let iconUrl = `https://openweathermap.org/img/wn/${iconID}@2x.png`;
+    let iconEl = $("<img>").attr("alt", "weatherIcon").attr("src", iconUrl);
+
+    $("#weatherIcon" + (i + 1)).append(iconEl);
+    $("#tempDisplay" + (i + 1)).text(weathData.list[i].main.feels_like);
+    $("#windDisplay" + (i + 1)).text(weathData.list[i].wind.speed);
+    $("#humidDisplay" + (i + 1)).text(weathData.list[i].main.humidity);
+  }
 }
 const getWeather = function (city) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=e6989dabdc4acd8059acb7786b6dfb7c&units=imperial`;
@@ -131,5 +110,3 @@ searchButton.on("click", function () {
   getWeather(SearchInput);
   getForecast(SearchInput);
 });
-
-
