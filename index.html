@@ -5,32 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
-    >
+    />
   </head>
   <body>
-    
-    
-    
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-4">Weather Dashboard</h1>
-        <p class="lead">
-          All your weather needs, right here!
-        </p>
+        <p class="lead">All your weather needs, right here!</p>
       </div>
     </div>
 
     <div class="row input-group mb-3">
       <div class="boxBorder3 col-3">
-        <input id="textInput"
+        <input
+          id="textInput"
           type="text"
           class="form-control"
-          placeholder="Recipient's username"
-          aria-label="Recipient's username"
+          placeholder="Enter City"
+          aria-label="Enter City"
           aria-describedby="button-addon2"
         />
         <button
@@ -40,17 +36,73 @@
         >
           Button
         </button>
-      </div>
-      <div class="col-9">
-       
-          <div class="row boxBorder1">
-            <p id="todayWeather">lorem</p>
-          </div>
-          <div class="row boxBorder2">
-            <p>lorem</p>
-          </div>
+        <div>
+          <ul id="fCastsaves">
+            <br /><br />
+          </ul>
         </div>
       </div>
+      <div class="col-9">
+        <div class="row boxBorder1">
+          <h1 id="todayWeather">Weather of the day</h1>
+          <h2 id="weatherIcon"></h2>
+          <h3 id="cityName"></h3>
+          <ul>  
+            <li id="tempDisplay"></li>
+            <li id="windDisplay"></li>
+            <li id="humidDisplay"></li>
+            <li id="uvDisplay"></li>
+          </ul>
+        </div>
+        <div class="row boxBorder2">
+          <h1 class="row col-12 justify-content-center">5 Day Forcast!!!!</h1>
+          <div class="col-2">
+            <h2 id="weatherIcon1"></h2>
+            <ul>
+              <li id="tempDisplay1"></li>
+              <li id="windDisplay1"></li>
+              <li id="humidDisplay1"></li>
+              
+            </ul>
+          </div>
+          <div class="col-2">
+            <h2 id="weatherIcon2"></h2>
+            <ul>
+              <li id="tempDisplay2"></li>
+              <li id="windDisplay2"></li>
+              <li id="humidDisplay2"></li>
+              
+            </ul>
+          </div>
+          <div class="col-2"><ul>
+            <h2 id="weatherIcon3"></h2>
+            <li id="tempDisplay3"></li>
+            <li id="windDisplay3"></li>
+            <li id="humidDisplay3"></li>
+           
+          </ul></div>
+          <div class="col-2">
+            <h2 id="weatherIcon4"></h2>
+            <ul>
+            <li id="tempDisplay4"></li>
+            <li id="windDisplay4"></li>
+            <li id="humidDisplay4"></li>
+            
+          </ul></div>
+          <div class="col-3">
+            <h2 id="weatherIcon5"></h2>
+            <ul>
+            <li id="tempDisplay5"></li>
+            <li id="windDisplay5"></li>
+            <li id="humidDisplay5"></li>
+           
+          </ul></div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
   </body>
